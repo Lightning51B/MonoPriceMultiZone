@@ -1,5 +1,7 @@
 package api;
 
+import java.io.UnsupportedEncodingException;
+
 import jssc.SerialPort;
 import jssc.SerialPortException;
 
@@ -17,10 +19,20 @@ public class MultiZoneRestContoller {
 	Configuration configuration;
 	@Autowired
 	SerialPort serialPort;
-
-	@RequestMapping("/setVolume/{opearation}/{zone}/{volume}")
+	
+	
+	/**
+	 * Sets the value for an operation to the selected zone
+	 * @param model
+	 * @param operation
+	 * @param zone
+	 * @param value
+	 * @return
+	 * @throws SerialPortException
+	 */
+	@RequestMapping("/setVolume/{opearation}/{zone}/{value}")
 	public Integer admin(Model model, @PathVariable String operation,
-			@PathVariable String zone, @PathVariable Integer value) {
+			@PathVariable String zone, @PathVariable Integer value) throws SerialPortException {
 
 	
 		String command;
@@ -59,16 +71,39 @@ public class MultiZoneRestContoller {
 			return 0;
 		}
 		command = String.format(Constants.SET_VALUE, zone, operation, value);
-		if (serialPort.isOpened()) {
-			try {
-				serialPort.writeBytes(command.getBytes());
+		if (serialPort.isOpened()) {			
+			serialPort.writeBytes(command.getBytes());
 
-			} catch (SerialPortException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		}else{
+			serialPort.openPort();
+			serialPort.writeBytes(command.getBytes());
 		}
 
 		return value;
+	}
+	
+	@RequestMapping("/inquire/{opearation}/{zone}")
+	public Integer inquire(Model model, @PathVariable String operation,
+			@PathVariable String zone) throws SerialPortException, UnsupportedEncodingException {
+
+	
+		String command = String.format(Constants.INQUIRE, zone, operation);
+		if (serialPort.isOpened()) {
+			serialPort.writeBytes(command.getBytes());
+			return getValueFromByteArray(serialPort.readBytes());
+
+		}else{
+			serialPort.openPort();
+			serialPort.writeBytes(command.getBytes());
+			return getValueFromByteArray(serialPort.readBytes());
+		}
+
+		
+	}
+	
+	private Integer getValueFromByteArray(byte[] bytes) throws UnsupportedEncodingException{
+		String str = new String(bytes, "UTF-8");
+		String value = str.substring(4, 5);
+		return Integer.parseInt(value);
 	}
 }
