@@ -1,5 +1,6 @@
 package api;
 
+import jssc.SerialPort;
 import jssc.SerialPortList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import config.Configuration;
 @Controller
 public class MultiZoneController {
 	@Autowired Configuration configuration;
+	@Autowired SerialPort serialPort;
+	
 	@RequestMapping("/admin")
     public String admin(Model model) {
 		String[] portNames = SerialPortList.getPortNames();
