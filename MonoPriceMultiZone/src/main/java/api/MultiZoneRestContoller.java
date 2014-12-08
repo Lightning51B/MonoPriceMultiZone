@@ -1,7 +1,6 @@
 package api;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import jssc.SerialPort;
 import jssc.SerialPortException;
@@ -12,17 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import util.Constants;
-import config.Configuration;
-import util.Utils;
-import vo.ZoneInfo;
+import api.config.Configuration;
+import api.util.Constants;
+import api.util.SerialPortWrapper;
+import api.util.Utils;
 
 @RestController
 public class MultiZoneRestContoller {
+
 	@Autowired
-	Configuration configuration;
-	@Autowired
-	SerialPort serialPort;
+	SerialPortWrapper serialPortWrapper;
 
 	/**
 	 * Sets the value for an operation to the selected zone
@@ -43,6 +41,7 @@ public class MultiZoneRestContoller {
 			return 0;
 		String command = String.format(Constants.SET_VALUE, zone, operation,
 				value);
+		SerialPort serialPort = serialPortWrapper.getSerialPort();
 		Utils.ensurePortIsOpen(serialPort);
 		serialPort.writeBytes(command.getBytes());
 		return value;
@@ -50,30 +49,28 @@ public class MultiZoneRestContoller {
 
 	
 	@RequestMapping("/inquire/{opearation}/{zone}")
-	public Integer inquire(Model model, @PathVariable String operation,
+	public void inquire(Model model, @PathVariable String operation,
 			@PathVariable String zone) throws SerialPortException,
 			UnsupportedEncodingException {
 
 		String command = String.format(Constants.INQUIRE, zone, operation);
-
+		SerialPort serialPort = serialPortWrapper.getSerialPort();
 		Utils.ensurePortIsOpen(serialPort);
 		serialPort.writeBytes(command.getBytes());
-		return Utils.getValueFromByteArray(serialPort.readBytes());
 
 	}
 
 
 	
 	@RequestMapping("/inquireAll/{zone}")
-	public List<ZoneInfo> inquireAll(Model model,
+	public void inquireAll(Model model,
 			@PathVariable String zone) throws Exception {
 
 		String command = String.format(Constants.INQUIRE_ALL, zone);
-
+		SerialPort serialPort = serialPortWrapper.getSerialPort();
 		Utils.ensurePortIsOpen(serialPort);
 		serialPort.writeBytes(command.getBytes());
-		return Utils.writeBytesToObject(serialPort.readBytes());
-
+	
 	}
 
 }

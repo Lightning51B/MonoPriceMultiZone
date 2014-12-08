@@ -1,7 +1,8 @@
-package vo;
+package api.vo;
 
 public class ZoneInfo {
 	private String zone;
+	private String zoneName;
 	private String paControl;
 	private String powerControl;
 	private String muteControl;
@@ -18,6 +19,12 @@ public class ZoneInfo {
 	}
 	public void setZone(String zone) {
 		this.zone = zone;
+	}
+	public String getZoneName() {
+		return zoneName;
+	}
+	public void setZoneName(String zoneName) {
+		this.zoneName = zoneName;
 	}
 	public String getPaControl() {
 		return paControl;

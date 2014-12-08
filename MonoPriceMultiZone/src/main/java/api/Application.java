@@ -1,41 +1,38 @@
 package api;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.Filter;
+
 import jssc.SerialPort;
+import jssc.SerialPortEvent;
+import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-import config.Configuration;
+import api.config.Configuration;
+import api.util.RequestRangeFilter;
+import api.util.SerialPortWrapper;
 
 @ComponentScan
 @EnableAutoConfiguration
 public class Application {
-	@Autowired Configuration configuration;
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public SerialPort serialPort(){
-    	SerialPort serialPort = new SerialPort("COM1");
-        try {
-            serialPort.openPort();//Open serial port
-            serialPort.setParams(SerialPort.BAUDRATE_9600, 
-                                 SerialPort.DATABITS_8,
-                                 SerialPort.STOPBITS_1,
-                                 SerialPort.PARITY_NONE);
-            serialPort.writeBytes("This is a test string".getBytes());//Write data to port
-        
-            
-        }
-        catch (SerialPortException ex) {
-            System.out.println(ex);
-        }
-        return serialPort;
-    }
+//    @Bean
+//	public Filter applicationContextIdFilter(ApplicationContext context) {
+//		return new RequestRangeFilter();
+//	}
+//   
+    
     
 }

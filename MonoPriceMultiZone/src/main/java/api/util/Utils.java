@@ -1,4 +1,4 @@
-package util;
+package api.util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.util.StringUtils;
 
-import vo.ZoneInfo;
+import api.vo.ZoneInfo;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 
@@ -86,17 +86,17 @@ public final class Utils {
 		ZoneInfo zoneInfo = new ZoneInfo();
 		if(str.length() >= 22) {
 			int i=0;
-			zoneInfo.setZone(str.substring(i++, i++));
-			zoneInfo.setPaControl(str.substring(i++, i++));
-			zoneInfo.setPowerControl(str.substring(i++, i++));
-			zoneInfo.setMuteControl(str.substring(i++, i++));
-			zoneInfo.setDtControl(str.substring(i++, i++));
-			zoneInfo.setVolumeControl(str.substring(i++, i++));
-			zoneInfo.setTrebleControl(str.substring(i++, i++));
-			zoneInfo.setBassControl(str.substring(i++, i++));
-			zoneInfo.setBalanceControl(str.substring(i++, i++));
-			zoneInfo.setSourceControl(str.substring(i++, i++));
-			zoneInfo.setKeypadConnect(str.substring(i++, i++));
+			zoneInfo.setZone(str.substring(0, 2));
+			zoneInfo.setPaControl(str.substring(2, 4));
+			zoneInfo.setPowerControl(str.substring(4, 6));
+			zoneInfo.setMuteControl(str.substring(6, 8));
+			zoneInfo.setDtControl(str.substring(8, 10));
+			zoneInfo.setVolumeControl(str.substring(10, 12));
+			zoneInfo.setTrebleControl(str.substring(12, 14));
+			zoneInfo.setBassControl(str.substring(14, 16));
+			zoneInfo.setBalanceControl(str.substring(16, 18));
+			zoneInfo.setSourceControl(str.substring(18, 20));
+			zoneInfo.setKeypadConnect(str.substring(20, 22));
 		}else {
 			throw new Exception();
 		}

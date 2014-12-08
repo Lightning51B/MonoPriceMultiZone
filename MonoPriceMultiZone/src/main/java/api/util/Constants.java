@@ -1,4 +1,4 @@
-package util;
+package api.util;
 
 public class Constants {
 	//MAX VALUES
