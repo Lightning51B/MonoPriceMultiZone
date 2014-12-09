@@ -1,0 +1,133 @@
+ *{
+-webkit-overflow-scrolling: touch;
+}
+body {
+	padding-top: 50px;
+}
+
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.wrap {
+	position: relative;
+	z-index: 1; margin : 0 auto;
+	width: 50px;
+	padding-bottom: 20px;
+	margin: 0 auto;
+}
+
+.pwrbtn {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: rgb(231, 231, 231);
+	background:
+		url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QwZDBkMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZGZkZmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	box-shadow: inset 0 5px 1px -1px #F0F0F0, inset 0 -3px 1px 1px #C3C3C3,
+		0 3px 5px 0 rgba(0, 0, 0, .7);
+	color: #BBB9B7;
+	text-align: center;
+	font-size: 30px;
+	line-height: 60px;
+	cursor: pointer;
+	transition: all .4s ease;
+}
+
+.pwtbtn:hover {
+	color: #FF6500;
+}
+
+.pwrbtn.active {
+	color: #FF6500;
+}
+
+.pwrbtn:after {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	z-index: -1;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background: red;
+	background: rgba(233, 230, 228, .8);
+	background: -webkit-linear-gradient(top, rgba(255, 151, 0, 0) 2%,
+		rgba(255, 151, 0, 0) 42%, rgba(254, 148, 0, 0) 44%,
+		rgba(233, 63, 0, 1) 100%);
+	background: -moz-linear-gradient(top, rgba(255, 151, 0, 0) 2%,
+		rgba(255, 151, 0, 0) 42%, rgba(254, 148, 0, 0) 44%,
+		rgba(233, 63, 0, 1) 100%);
+	background-position: 0 350px;
+	background-size: 100px 450px;
+	box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .6), 0 1px 2px 0 #fff;
+	content: "";
+	transition: background-position 1s ease;
+}
+
+.pwrbtn:hover:after {
+	background-position: 0px 260px;
+}
+
+.pwrbtn.active:after {
+	background-position: 0px 100px;
+}
+
+.eqwrapper {
+	margin: 0 auto;
+	width: 240px;
+}
+
+.levelwrapper {
+	margin:10px;
+	padding:0;
+	border-color: lightgrey;
+	border-style: solid;
+	border-width: 1px;
+	width: 60px;
+}
+
+#eq  .level {
+	height: 120px;
+	float: left;
+	margin: 0 25px 0 25px;
+}
+
+.levelwrapper .level {
+	height: 120px;
+	float: left;
+	margin: 0 25px 0 25px;
+}
+
+video#bgvid {
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	background: url(../image/background.png) no-repeat top ; /* replace **image link** with your own file*/
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+
+.zone-panel{
+	padding-bottom:0;
+}
+
+.zone{
+	background-color: rgba(255,122,0,0.7);
+}
+
+.eq-well{
+	margin-bottom:0;
+}
+
