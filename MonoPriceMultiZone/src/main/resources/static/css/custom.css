@@ -3,6 +3,7 @@
 }
 body {
 	padding-top: 50px;
+	
 }
 
 .starter-template {
@@ -82,7 +83,7 @@ body {
 
 .levelwrapper {
 	margin:10px;
-	padding:0;
+	padding:10px 0 10px 0;
 	border-color: lightgrey;
 	border-style: solid;
 	border-width: 1px;
@@ -92,25 +93,24 @@ body {
 #eq  .level {
 	height: 120px;
 	float: left;
-	margin: 0 25px 0 25px;
+	margin: 10px 25px 10px 25px;
 }
 
 .levelwrapper .level {
 	height: 120px;
 	float: left;
-	margin: 0 25px 0 25px;
+	margin: 0 20px 0 20px;
 }
 
-video#bgvid {
+#bgvid {
 	min-width: 100%;
 	min-height: 100%;
 	width: auto;
 	height: auto;
-	background: url(../image/background.png) no-repeat top ; /* replace **image link** with your own file*/
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+	background: -webkit-linear-gradient(black, darkblue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(black, darkblue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(black, darkblue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(black, darkblue); /* Standard syntax (must be last)*/
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -124,10 +124,40 @@ video#bgvid {
 }
 
 .zone{
-	background-color: rgba(255,122,0,0.7);
+	background-color: rgba(0,230,230,0.7);
 }
 
 .eq-well{
 	margin-bottom:0;
+}
+
+.master-wrapper .ui-slider-horizontal {
+    height: 20px;
+    
+}
+.master-wrapper .ui-slider .ui-slider-handle {
+    height: 30px;
+    width: 5px;
+    padding-left: 10px;
+}
+
+.levelwrapper .ui-slider-vertical {
+    width: 20px;
+    
+}
+.levelwrapper .ui-slider .ui-slider-handle {
+    width: 28px;
+    height: 5px;
+    padding-bottom: 10px;
+}
+
+.volume-text{
+	color:white;
+	margin-top:10px;
+}
+
+.leveltext{
+	margin-top:10px;
+	margin-bottom:5px;
 }
 

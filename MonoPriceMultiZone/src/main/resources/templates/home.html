@@ -16,13 +16,17 @@
 
 <link rel="stylesheet" href="../css/custom.css" th:href="@{/css/custom.css}" />
 
-
+<!--[if !IE]>-->
+	<link media="only screen and (max-device-width: 480px)"
+	    href="mobile.css" type="text/css" rel="stylesheet" />
+	<!--<![endif]-->
 
 </head>
 <body>
-	<video id="bgvid" autoplay="true" loop="true">
-		<source src="../video/background.mov" />
-	</video>
+	<div id="bgvid"></div>
+<!-- 	<video id="bgvid" autoplay="true" loop="true"> -->
+<!-- 		<source src="../video/background.mov" /> -->
+<!-- 	</video> -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -56,7 +60,7 @@
 			<div class="col-md-4 col-sm-12" th:each="zone : ${zones}">
 				<div class="panel panel-default zone">
 					<div class="panel-heading">
-						<h3 class="panel-title" th:text="${zone.zoneName}"></h3>
+						<h3 class="panel-title" th:text="${zone.zoneName}">Zone 1</h3>
 					</div>
 					<div class="panel-body zone-panel">
 						<div class="row">
@@ -76,8 +80,8 @@
 								<button type="button" class="btn btn-default">6</button>
 							</div>
 						</div>
-						<div class="row">
-							Volume
+						<div class="row master-wrapper">
+							<div class="volume-text">Volume</div>
 							<div class="master" style="margin: 15px;"></div>
 						</div>
 						<div class="row well well-lg eq-well">
@@ -111,9 +115,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script><script type="text/javascript">
+	<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 	
-	
+	<script type="text/javascript">
 	$(function() {
 	    // setup master volume
 	    $(".master").slider({
