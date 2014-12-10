@@ -1,9 +1,9 @@
- *{
--webkit-overflow-scrolling: touch;
+* {
+	-webkit-overflow-scrolling: touch;
 }
+
 body {
 	padding-top: 50px;
-	
 }
 
 .starter-template {
@@ -13,7 +13,8 @@ body {
 
 .wrap {
 	position: relative;
-	z-index: 1; margin : 0 auto;
+	z-index: 1;
+	margin: 0 auto;
 	width: 50px;
 	padding-bottom: 20px;
 	margin: 0 auto;
@@ -82,8 +83,8 @@ body {
 }
 
 .levelwrapper {
-	margin:10px;
-	padding:10px 0 10px 0;
+	margin: 10px;
+	padding: 10px 0 10px 0;
 	border-color: lightgrey;
 	border-style: solid;
 	border-width: 1px;
@@ -103,61 +104,103 @@ body {
 }
 
 #bgvid {
-	min-width: 100%;
+	/* 	min-width: 100%;
 	min-height: 100%;
 	width: auto;
 	height: auto;
-	background: -webkit-linear-gradient(black, darkblue); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(black, darkblue); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(black, darkblue); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(black, darkblue); /* Standard syntax (must be last)*/
+	background: -webkit-linear-gradient(black, darkblue);
+	For Safari 5.1 to 6.0
+	background: -o-linear-gradient(black, darkblue);
+	For Opera 11.1 to 12.0
+	background: -moz-linear-gradient(black, darkblue);
+	For Firefox 3.6 to 15
+	background: linear-gradient(black, darkblue);
+	Standard syntax (must be last)
 	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	right: 0;
+	right: 0; */
+	
 }
 
-
-.zone-panel{
-	padding-bottom:0;
+.zone-panel {
+	padding-bottom: 0;
 }
 
-.zone{
-	background-color: rgba(0,230,230,0.7);
+.zone {
+	background-color: rgba(0, 230, 230, 0.7);
 }
 
-.eq-well{
-	margin-bottom:0;
+.eq-well {
+	margin-bottom: 0;
 }
 
 .master-wrapper .ui-slider-horizontal {
-    height: 20px;
-    
+	height: 20px;
 }
+
 .master-wrapper .ui-slider .ui-slider-handle {
-    height: 30px;
-    width: 5px;
-    padding-left: 10px;
+	height: 30px;
+	width: 5px;
+	padding-left: 10px;
 }
 
 .levelwrapper .ui-slider-vertical {
-    width: 20px;
-    
+	width: 20px;
 }
+
 .levelwrapper .ui-slider .ui-slider-handle {
-    width: 28px;
-    height: 5px;
-    padding-bottom: 10px;
+	width: 28px;
+	height: 5px;
+	padding-bottom: 10px;
 }
 
-.volume-text{
-	color:white;
-	margin-top:10px;
+.volume-text {
+	color: white;
+	margin-top: 10px;
 }
 
-.leveltext{
-	margin-top:10px;
-	margin-bottom:5px;
+.leveltext {
+	margin-top: 10px;
+	margin-bottom: 5px;
 }
 
+@media
+(
+max-width
+:
+768px)
+{
+section {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 30px;
+	width: 100%;
+	height: 100%;
+}
+
+html, body {
+	margin: 0;
+	padding-top: 5px;
+	height: 100%;
+}
+
+.section-wrapper {
+	position: absolute;
+	overflow: scroll;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+.panel-wrapper{
+	height:100%
+}
+.panel{
+	height:100%;
+}
+}

@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <title>Monoprice MultiZone</title>
 <head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
 
 <!-- Optional theme -->
@@ -16,17 +16,14 @@
 
 <link rel="stylesheet" href="../css/custom.css" th:href="@{/css/custom.css}" />
 
-<!--[if !IE]>-->
-	<link media="only screen and (max-device-width: 480px)"
-	    href="mobile.css" type="text/css" rel="stylesheet" />
-	<!--<![endif]-->
+
 
 </head>
 <body>
 	<div id="bgvid"></div>
-<!-- 	<video id="bgvid" autoplay="true" loop="true"> -->
-<!-- 		<source src="../video/background.mov" /> -->
-<!-- 	</video> -->
+	<!-- 	<video id="bgvid" autoplay="true" loop="true"> -->
+	<!-- 		<source src="../video/background.mov" /> -->
+	<!-- 	</video> -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -55,57 +52,59 @@
 		</div>
 	</nav>
 
-	<div class="container starter-template">
-		<div class="row">
-			<div class="col-md-4 col-sm-12" th:each="zone : ${zones}">
-				<div class="panel panel-default zone">
-					<div class="panel-heading">
-						<h3 class="panel-title" th:text="${zone.zoneName}">Zone 1</h3>
-					</div>
-					<div class="panel-body zone-panel">
-						<div class="row">
-							<div class="wrap">
-								<div class="pwrbtn">
-									<i class="icon-off"></i>
+	<div class="starter-template">
+		<div class="row section-wrapper">
+			<section class="col-md-4" th:each="zone : ${zones}">
+				<div class="panel-wrapper">
+					<div class="panel panel-default zone">
+						<div class="panel-heading">
+							<h3 class="panel-title" th:text="${zone.zoneName}">Zone 1</h3>
+						</div>
+						<div class="panel-body zone-panel">
+							<div class="row">
+								<div class="wrap">
+									<div class="pwrbtn">
+										<i class="icon-off"></i>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="btn-group" role="group" aria-label="First group">
-								<button type="button" class="btn btn-default">1</button>
-								<button type="button" class="btn btn-default">2</button>
-								<button type="button" class="btn btn-default">3</button>
-								<button type="button" class="btn btn-default">4</button>
-								<button type="button" class="btn btn-default">5</button>
-								<button type="button" class="btn btn-default">6</button>
+							<div class="row">
+								<div class="btn-group" role="group" aria-label="First group">
+									<button type="button" class="btn btn-default">1</button>
+									<button type="button" class="btn btn-default">2</button>
+									<button type="button" class="btn btn-default">3</button>
+									<button type="button" class="btn btn-default">4</button>
+									<button type="button" class="btn btn-default">5</button>
+									<button type="button" class="btn btn-default">6</button>
+								</div>
 							</div>
-						</div>
-						<div class="row master-wrapper">
-							<div class="volume-text">Volume</div>
-							<div class="master" style="margin: 15px;"></div>
-						</div>
-						<div class="row well well-lg eq-well">
-							<div class="eqwrapper">
+							<div class="row master-wrapper">
+								<div class="volume-text">Volume</div>
+								<div class="master" style="margin: 15px;"></div>
+							</div>
+							<div class="row well well-lg eq-well">
+								<div class="eqwrapper">
 
-								<div id="eq ">
-									<div class="levelwrapper col-md-2 col-xs-2">
-										<div class="leveltext">Bass</div>
-										<div class="level">88</div>
-									</div>
-									<div class="levelwrapper col-md-2 col-xs-2">
-										<div class="leveltext">Trebel</div>
-										<div class="level">77</div>
-									</div>
-									<div class="levelwrapper col-md-2 col-xs-2">
-										<div class="leveltext">Balance</div>
-										<div class="level">55</div>
+									<div id="eq ">
+										<div class="levelwrapper col-md-2 col-xs-2">
+											<div class="leveltext">Bass</div>
+											<div class="level">88</div>
+										</div>
+										<div class="levelwrapper col-md-2 col-xs-2">
+											<div class="leveltext">Trebel</div>
+											<div class="level">77</div>
+										</div>
+										<div class="levelwrapper col-md-2 col-xs-2">
+											<div class="leveltext">Balance</div>
+											<div class="level">55</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 
 		</div>
@@ -117,32 +116,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-	
-	<script type="text/javascript">
-	$(function() {
-	    // setup master volume
-	    $(".master").slider({
-		value : 60,
-		orientation : "horizontal",
-		range : "min",
-		animate : true
-	    });
-	    // setup graphic EQ
-	    $(".level").each(function() {
-		// read initial values from markup and remove that
-		var value = parseInt($(this).text(), 10);
-		$(this).empty().slider({
-		    value : value,
-		    range : "min",
-		    max : 100,
-		    animate : true,
-		    orientation : "vertical"
-		});
-	    });
-	    $('.pwrbtn').bind('click', function() {
-		$(this).toggleClass('active');
-	    });
-	});
-    </script>
+	<script type="text/javascript" src="../js/jquery.panelSnap.js"></script>
+
+	<script type="text/javascript" src="../js/multizone.js"></script>
 </body>
 </html>
