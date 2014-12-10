@@ -5,16 +5,22 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
 
 <!-- Optional theme -->
 
 
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css" rel="stylesheet" />
+<link
+	href="http://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css"
+	rel="stylesheet" />
 
-<link href="https://code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+<link
+	href="https://code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css"
+	rel="stylesheet" />
 
-<link rel="stylesheet" href="../css/custom.css" th:href="@{/css/custom.css}" />
+<link rel="stylesheet" href="../css/custom.css"
+	th:href="@{/css/custom.css}" />
 
 
 
@@ -27,25 +33,20 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">Monoprice MultiZone </a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#about">About</a>
-					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -58,45 +59,53 @@
 				<div class="panel-wrapper">
 					<div class="panel panel-default zone">
 						<div class="panel-heading">
-							<h3 class="panel-title" th:text="${zone.zoneName}">Zone 1</h3>
+							<div class="panel-title" >
+							<h3 th:text="${zone.zoneName}">Zone 1</h3>
+							<div class="wrap">
+								<div class="pwrbtn">
+									<i class="icon-off"></i>
+								</div>
+							</div>
+							</div>
 						</div>
 						<div class="panel-body zone-panel">
+							<div class="row"></div>
 							<div class="row">
-								<div class="wrap">
-									<div class="pwrbtn">
-										<i class="icon-off"></i>
+								<div class="well zone-well well-sm">
+									<div>Channel</div>
+									<div class="btn-group" role="group" aria-label="First group">
+										<button type="button" class="btn btn-default">1</button>
+										<button type="button" class="btn btn-default">2</button>
+										<button type="button" class="btn btn-default">3</button>
+										<button type="button" class="btn btn-default">4</button>
+										<button type="button" class="btn btn-default">5</button>
+										<button type="button" class="btn btn-default">6</button>
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="btn-group" role="group" aria-label="First group">
-									<button type="button" class="btn btn-default">1</button>
-									<button type="button" class="btn btn-default">2</button>
-									<button type="button" class="btn btn-default">3</button>
-									<button type="button" class="btn btn-default">4</button>
-									<button type="button" class="btn btn-default">5</button>
-									<button type="button" class="btn btn-default">6</button>
+							<div class="row master-wrapper">
+								<div class="well well-sm zone-well">
+									<div class="">Volume</div>
+									<div class="master" style="margin: 15px;"></div>
 								</div>
 							</div>
-							<div class="row master-wrapper">
-								<div class="volume-text">Volume</div>
-								<div class="master" style="margin: 15px;"></div>
-							</div>
-							<div class="row well well-lg eq-well">
-								<div class="eqwrapper">
+							<div class="row well well-lg eq-well zone-well">
+								<div>
+									<div class="eqwrapper">
 
-									<div id="eq ">
-										<div class="levelwrapper col-md-2 col-xs-2">
-											<div class="leveltext">Bass</div>
-											<div class="level">88</div>
-										</div>
-										<div class="levelwrapper col-md-2 col-xs-2">
-											<div class="leveltext">Trebel</div>
-											<div class="level">77</div>
-										</div>
-										<div class="levelwrapper col-md-2 col-xs-2">
-											<div class="leveltext">Balance</div>
-											<div class="level">55</div>
+										<div id="eq ">
+											<div class="levelwrapper col-md-2 col-xs-2">
+												<div class="leveltext">Bass</div>
+												<div class="level">88</div>
+											</div>
+											<div class="levelwrapper col-md-2 col-xs-2">
+												<div class="leveltext">Trebel</div>
+												<div class="level">77</div>
+											</div>
+											<div class="levelwrapper col-md-2 col-xs-2">
+												<div class="leveltext">Balance</div>
+												<div class="level">55</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -111,11 +120,14 @@
 	</div>
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.panelSnap.js"></script>
 
 	<script type="text/javascript" src="../js/multizone.js"></script>
