@@ -59,13 +59,21 @@
 				<div class="panel-wrapper">
 					<div class="panel panel-default zone">
 						<div class="panel-heading">
-							<div class="panel-title" >
-							<h3 th:text="${zone.zoneName}">Zone 1</h3>
-							<div class="wrap">
-								<div class="pwrbtn">
-									<i class="icon-off"></i>
+							<div class="panel-title">
+								<div class="mute-wrapper unmuted-wrapper">
+									<span class="unmute"> 
+										<i class="icon-volume-up"></i>
+									</span> 
+									<span class="mute"> 
+										<i class="icon-volume-off"></i>
+									</span>
 								</div>
-							</div>
+								<h3 th:text="${zone.zoneName}">Zone 1</h3>
+								<div class="wrap">
+									<div class="pwrbtn">
+										<i class="icon-off"></i>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="panel-body zone-panel">

@@ -1,4 +1,10 @@
 $(function() {
+		//setup mute button
+	
+
+	$('.section-wrapper').on('click', '.mute-wrapper',function() {	
+		$(this).toggleClass('muted-wrapper unmuted-wrapper');
+	});
 	    // setup master volume
 	    $(".master").slider({
 			value : 60,

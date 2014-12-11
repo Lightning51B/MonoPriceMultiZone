@@ -177,6 +177,37 @@ section {
 	margin-right:10px;
 }
 
+.unmute i, .mute i{
+	height:40px;
+}
+
+.mute-wrapper{
+	position:absolute;
+	top:0;
+}
+
+.unmute{
+	font-size:40px;
+}
+
+.mute{
+	font-size:40px;
+}
+.unmuted-wrapper .unmute i {
+    display: block;
+}
+
+.unmuted-wrapper .mute i{
+	display:none;
+} 
+
+.muted-wrapper .unmute i{
+	display:none;
+}
+.muted-wrapper .mute i {
+    display: block;
+}
+
 @media
 (
 max-width
