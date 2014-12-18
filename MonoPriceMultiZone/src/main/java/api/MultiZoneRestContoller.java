@@ -32,22 +32,22 @@ public class MultiZoneRestContoller {
 	 * @return
 	 * @throws SerialPortException
 	 */
-	@RequestMapping("/setVolume/{opearation}/{zone}/{value}")
-	public Integer admin(Model model, @PathVariable String operation,
+	@RequestMapping("/setValue/{operation}/{zone}/{value}")
+	public void admin(Model model, @PathVariable String operation,
 			@PathVariable String zone, @PathVariable Integer value)
 			throws SerialPortException {
 
-		if (!Utils.isValueValid(operation, value))
-			return 0;
-		String command = String.format(Constants.SET_VALUE, zone, operation,
-				value);
-		SerialPort serialPort = serialPortWrapper.getSerialPort();
-		Utils.ensurePortIsOpen(serialPort);
-		serialPort.writeBytes(command.getBytes());
-		return value;
+		if (Utils.isValueValid(operation, value)) {
+
+			String command = String.format(Constants.SET_VALUE, zone,
+					operation, value);
+			System.out.println(command);
+			/*SerialPort serialPort = serialPortWrapper.getSerialPort();
+			Utils.ensurePortIsOpen(serialPort);
+			serialPort.writeBytes(command.getBytes());*/
+		}
 	}
 
-	
 	@RequestMapping("/inquire/{opearation}/{zone}")
 	public void inquire(Model model, @PathVariable String operation,
 			@PathVariable String zone) throws SerialPortException,
@@ -60,17 +60,15 @@ public class MultiZoneRestContoller {
 
 	}
 
-
-	
 	@RequestMapping("/inquireAll/{zone}")
-	public void inquireAll(Model model,
-			@PathVariable String zone) throws Exception {
+	public void inquireAll(Model model, @PathVariable String zone)
+			throws Exception {
 
 		String command = String.format(Constants.INQUIRE_ALL, zone);
 		SerialPort serialPort = serialPortWrapper.getSerialPort();
 		Utils.ensurePortIsOpen(serialPort);
 		serialPort.writeBytes(command.getBytes());
-	
+
 	}
 
 }

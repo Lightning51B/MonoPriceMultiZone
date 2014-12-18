@@ -11,13 +11,15 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 
 public final class Utils {
-	public static void ensurePortIsOpen(SerialPort serialPort) throws SerialPortException{
-		if (serialPort.isOpened()) 
+	public static void ensurePortIsOpen(SerialPort serialPort)
+			throws SerialPortException {
+		if (serialPort.isOpened())
 			serialPort.openPort();
 	}
-	
-	/** 
+
+	/**
 	 * Determine if the value is within range for the operation
+	 * 
 	 * @param operation
 	 * @param value
 	 * @return
@@ -27,25 +29,29 @@ public final class Utils {
 			return false;
 		switch (operation) {
 		case "VO":
-			if (value > Constants.MAX_VOLUME)
-				return false;
+			if (value <= Constants.MAX_VOLUME)
+				return true;
+			break;
 		case "TR":
-			if (value > Constants.MAX_TREBLE)
-				return false;
+			if (value <= Constants.MAX_TREBLE)
+				return true;
 			break;
 		case "BS":
-			if (value > Constants.MAX_BASS)
-				return false;
+			if (value <= Constants.MAX_BASS)
+				return true;
+			break;
 		case "BL":
-			if (value > Constants.MAX_BALANCE)
-				return false;
+			if (value <= Constants.MAX_BALANCE)
+				return true;
+			break;
 		case "CH":
-			if (value > Constants.MAX_CHANNEL)
-				return false;
+			if (value <= Constants.MAX_CHANNEL)
+				return true;
+			break;
 		default:
 			return false;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -62,17 +68,18 @@ public final class Utils {
 		String value = str.substring(4, 5);
 		return Integer.parseInt(value);
 	}
-	
-	
-	public static List<ZoneInfo> writeBytesToObject(byte[] bytes) throws Exception {
+
+	public static List<ZoneInfo> writeBytesToObject(byte[] bytes)
+			throws Exception {
 		String str = new String(bytes, "UTF-8");
 		String[] arr = StringUtils.delimitedListToStringArray(str, "'CR'");
 		List<ZoneInfo> zoneList = new ArrayList<ZoneInfo>();
-		for(String s : arr) {
+		for (String s : arr) {
 			zoneList.add(Utils.createZoneInfoFromString(s));
 		}
 		return null;
 	}
+
 	/**
 	 * Take a line and transform it into a Zone Info object
 	 * 
@@ -81,11 +88,12 @@ public final class Utils {
 	 * @throws Exception
 	 */
 
-	public static ZoneInfo createZoneInfoFromString(String str) throws Exception {
-		//Check if there is enough data
+	public static ZoneInfo createZoneInfoFromString(String str)
+			throws Exception {
+		// Check if there is enough data
 		ZoneInfo zoneInfo = new ZoneInfo();
-		if(str.length() >= 22) {
-			int i=0;
+		if (str.length() >= 22) {
+			int i = 0;
 			zoneInfo.setZone(str.substring(0, 2));
 			zoneInfo.setPaControl(str.substring(2, 4));
 			zoneInfo.setPowerControl(str.substring(4, 6));
@@ -97,7 +105,7 @@ public final class Utils {
 			zoneInfo.setBalanceControl(str.substring(16, 18));
 			zoneInfo.setSourceControl(str.substring(18, 20));
 			zoneInfo.setKeypadConnect(str.substring(20, 22));
-		}else {
+		} else {
 			throw new Exception();
 		}
 		return zoneInfo;
