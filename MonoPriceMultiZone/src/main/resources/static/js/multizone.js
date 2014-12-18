@@ -1,7 +1,16 @@
 $(function() {
-		//setup mute button
-	
-
+		
+    $(window).scroll( function() {
+	debugger;
+	    var value = $(this).scrollTop();
+	    if ( value > 50 )
+	        $(".navbar").slideUp('slow');
+	    else
+		$(".navbar").slideDown('slow');
+	});
+    //setup mute button
+    	
+  
 	$('.section-wrapper').on('click', '.mute-wrapper',function() {	
 		$(this).toggleClass('muted-wrapper unmuted-wrapper');
 	});

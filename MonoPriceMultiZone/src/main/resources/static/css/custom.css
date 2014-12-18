@@ -1,6 +1,18 @@
 * {
 	-webkit-overflow-scrolling: touch;
 }
+.navbar{
+	background-color:#3498db;
+	border:0 none;
+}
+
+.navbar  a, .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+	color:white;
+}
+
+#navbar .nav > li > a:hover, #navbar .nav > li > a:active, .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+	background-color:#2980b9;
+}
 
 section {
 	padding-top: 50px;
@@ -134,7 +146,7 @@ section {
 }
 
 .zone {
-	background-color: rgba(0, 230, 230, 0.7);
+	background-image:linear-gradient(155deg, #2292d9 40%,#1d48ba);
 	position:relative;
 }
 
