@@ -1,12 +1,16 @@
 $(function() {
 		
     $(window).scroll( function() {
-	debugger;
+
 	    var value = $(this).scrollTop();
-	    if ( value > 50 )
-	        $(".navbar").slideUp('slow');
-	    else
-		$(".navbar").slideDown('slow');
+	    if ( value > 50 ){
+		if($(".navbar").is(':visible'))
+		    $(".navbar").slideUp('slow');
+	    }
+	    else{
+		if($(".navbar").is(':hidden'))
+		    $(".navbar").slideDown('slow');
+	    }
 	});
     //setup mute button
     	
