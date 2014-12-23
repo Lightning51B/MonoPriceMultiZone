@@ -3,13 +3,17 @@ $(function() {
     $(window).scroll( function() {
 
 	    var value = $(this).scrollTop();
-	    if ( value > 50 ){
-		if($(".navbar").is(':visible'))
-		    $(".navbar").slideUp('slow');
-	    }
-	    else{
-		if($(".navbar").is(':hidden'))
-		    $(".navbar").slideDown('slow');
+	    if($(".navbar").not(':animated')){
+		    if ( value > 50 ){
+		    	if($(".navbar").is(':visible')){
+		    		$(".navbar").slideUp();
+		    	}
+		    }
+		    else{
+		    	if($(".navbar").is(':hidden')){
+		    		$(".navbar").slideDown();
+		    	}
+		    }
 	    }
 	});
     //setup mute button
