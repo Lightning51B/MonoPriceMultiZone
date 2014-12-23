@@ -42,7 +42,7 @@ public class MultiZoneController {
     }
 	
     @RequestMapping("/")
-    public String greeting(Model model) {
+    public String home(Model model) {
         //model.addAttribute("name", name);
     	List<ZoneInfo>zfs = new ArrayList<ZoneInfo>();
         for(int i=0; i<6; i++)
@@ -76,7 +76,7 @@ public class MultiZoneController {
     	List<ZoneInfo>zfs = new ArrayList<ZoneInfo>();
     	for(int i=0; i<3; i++)
         	zfs.add(Utils.createZoneInfoFromString("010203040506070809101112131415161718"));
-        this.template.convertAndSend("/topic/greetings",zfs);
+        template.convertAndSend("/topic/greetings",zfs);
     }
 
 }
